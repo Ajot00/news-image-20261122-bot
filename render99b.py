@@ -84,7 +84,7 @@ def scene(i,box):
     elif i==5:
         R(0,0,1,1,(77,99,89)); R(.04,.04,.95,.70,(61,83,77));
         for k in range(5): L([(.05,.15+k*.1),(.95,.15+k*.1)],(96,117,96),1)
-        R(.70,.13,.96,.39,(31,62,49),GOLD,2); txt(X(.72),Y(.20),'629/6',bold(13),(228,215,150))
+        R(.70,.02,.96,.12,(31,62,49),GOLD,2); txt(X(.72),Y(.04),'629/6',bold(13),(228,215,150))
         for k in range(3): R(.04+k*.07,.73,.09+k*.07,.97,(102,82,64))
         # striker and keeper
         E(.38,.27,.45,.37,(199,145,98)); L([(.42,.36),(.43,.56),(.32,.63)],INK,5); L([(.43,.48),(.55,.34)],INK,4); L([(.43,.54),(.49,.66)],INK,4); L([(.39,.40),(.32,.30)],INK,4)
@@ -155,7 +155,7 @@ top=[('ANTALYA, TÜRKIYE · CLIMATE','COP31 closes in on a deal at dawn','After 
 small=[('GULF OF FINLAND · WAR AT SEA','Russian ship still burning in Finnish waters','Finland leads rescue as Sparta II fire rages on.','REUTERS','16 CREW SAFE'),('WELLINGTON · CRICKET','Pant’s 128 puts India 629/6','India’s highest tally in New Zealand; lead 261 at lunch on day four.','REUTERS','629/6'),('PATNA, INDIA · INFRASTRUCTURE','Modi opens Nitish Setu bridge','PM inaugurates bridge linking Patna and Vaishali districts.','PTI','BRIDGE OPENS'),('TALLINN · SECURITY','Estonia to shut its Russia border on 1 Dec','All five crossings shut after sabotage bid; families rush to cross.','REUTERS','1 DEC'),('GAZA · AID','Strike hits food aid vehicle','Three Palestinians die in an air attack.','AL JAZEERA · REUTERS','3 KILLED'),('BRASÍLIA · HEALTH','Bolsonaro in intensive care','Ex-president stable, breathing on his own.','AP','ICU'),('SINALOA, MEXICO · CARTELS','Mexico captures “El Chapo Isidro”','FBI top-ten fugitive flown to capital; 11 killed in operation.','AP','11 KILLED'),('WASHINGTON · SECURITY','US airlines warned of terror threat','Carriers warned of possible al-Qaeda-linked attack before Thanksgiving.','REPORTS','AL-QAEDA LINK'),('BASRA, IRAQ · DISASTER','Four die in fire at Basra power plant','Blaze at electricity facility also injures 35 in the city.','REUTERS','4 DEAD'),('TURIN · TENNIS','Zverev meets Alcaraz for ATP Finals title','Top two seeds clash at 17:00 GMT.','ATP','17:00 GMT')]
 
 # Masthead and page furniture
-txt(24,7,'THE WORLD IN ONE DAY',bold(13),RED); txt(641,7,'35 STORIES · 7 REGIONS · EVERY ONE DATED SUNDAY 22 NOVEMBER 2026',bold(10),INK)
+txt(24,7,'THE WORLD IN ONE DAY',bold(13),RED); txt(641,7,'35 STORIES · 7 REGIONS · SUNDAY 22 NOVEMBER 2026',bold(10),INK)
 txt(25,29,'Sunday 22 November 2026',ser(62),INK)
 txt(25,103,'COP31 near a deal at dawn · Iran says it hit US radars in Bahrain · Hong Kong votes',bold(14),RED)
 nums=[('~200','nations at COP31 talks'),('03:00','GMT objection deadline'),('2','radars Iran says hit'),('629/6','India at lunch'),('723','Hong Kong seats'),('700,000','displaced in Ethiopia')]
@@ -201,12 +201,12 @@ for k,(lon,lat) in enumerate(coords):
 
 briefs=[('BAYELSA, NIGERIA','Boat toll rises to 24.','NEMA'),('WASHINGTON','Nvidia faces SEC accounting probe.','MEDIA'),('JERUSALEM','Eisenkot opens coalition talks with Likud.','MAARIV'),('TEHRAN','Iran to ration electricity as grid strains.','ST'),('CANBERRA','Marles says US budget office is “wrong” on AUKUS subs.','ABC'),('MANILA','Chinese bomber turns back 170 km from capital.','AP'),('MELBOURNE','Cummins keeps Test captaincy; board backs him.','ABC'),('NEW YORK','Gupta jailed 19 years in Pannun plot.','COURT'),('TOKYO','Japan to train on Indian ranges, a first.','REPORTS'),('WASHINGTON','Hegseth curbs US–Canada military gatherings.','REPORTS'),('RANCHI','Cyclone Akvan axes 14 flights.','REPORTS'),('KYIV','Two killed in overnight Russian strikes.','OFFICIALS'),('KYIV','Zelenskyy calls Putin a “murderer”.','REPORTS'),('LAS VEGAS','Verstappen on pole for Grand Prix.','REUTERS'),('LIVERPOOL','Liverpool host Manchester United at Anfield.','BBC'),('MARKETS','Bitcoin holds above $60,000.','MARKET'),('MOGADISHU','Somalia expels UAE ambassador, recalls envoy.','REPORTS'),('COPENHAGEN','Denmark expels Russian attaché over rapper plot.','GUARDIAN'),('BRUSSELS','Air traffic to halt in 23 Nov strike.','ST'),('BERLIN','IG Metall widens car and shipyard strikes.','REUTERS'),('LISBON','Thousands march on living costs.','REUTERS'),('DHAKA','30 Awami League homes set on fire.','TOI')]
 brief_bodies=['Toll reaches 24','SEC probe reported','Likud talks open','Power rationing planned',
-    'AUKUS budget called wrong','Bomber turns back 170 km','Board backs Test captain',
+    'AUKUS budget called “wrong”','Bomber turns back 170 km','Board backs Test captain',
     'Gupta jailed 19 years','Indian range training begins','US-Canada gatherings curbed',
-    'Akvan cancels 14 flights','Two killed in strikes','Zelenskyy calls Putin murderer',
+    'Akvan cancels 14 flights','Two killed in strikes','Zelenskyy calls Putin “murderer”',
     'Verstappen takes pole','Host United at Anfield','Bitcoin above $60,000',
     'UAE envoy expelled, recalled','Russian attaché expelled','Strike halts air traffic',
-    'Car, shipyard strikes widen','Marchers cite living costs','30 Awami League homes burned']
+    'Car, shipyard strikes widen','Thousands march on living costs','30 Awami League homes burned']
 for k,row in enumerate(briefs):
     col=k//11; rr=k%11; x=346+col*324; y=744+rr*14
     n=14+k; txt(x,y,f'{n:02}',bold(9),RED)
