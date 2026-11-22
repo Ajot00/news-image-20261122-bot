@@ -59,11 +59,11 @@ def line(x1, y1, x2, y2, color=PALE, width=1):
 
 stories = [
     ('ANTALYA, TÜRKİYE · CLIMATE', 'COP31 closes in on a deal at dawn',
-     "After running past Friday's close, presidents unveil a package nearly 200 nations can accept. Objections shut at 03:00 GMT; approval opens at 06:00.", 'Reuters'),
+     "After running past Friday's close, presidents unveil a package nearly 200 nations can accept.", 'Reuters'),
     ('MANAMA, BAHRAIN · WAR', 'Iran says it hit US radars in Bahrain',
-     'Tehran says missiles and drones hit US radars at al-Riffa and Awali; Bahrain says a civilian site caught fire, no injuries.', 'IRNA · Al Jazeera'),
+     'Tehran says missiles and drones hit US radars at al-Riffa and Awali; Bahrain reports a fire, no injuries.', 'IRNA · Al Jazeera'),
     ('HONG KONG · POLITICS', 'Hong Kong votes for its Election Committee',
-     'About 5,700 voters choose members of the 1,500-strong body that picks the chief executive. Polls run 9am to 6pm; 856 candidates chase 723 seats.', 'China Daily · SCMP'),
+     'About 5,700 voters choose the 1,500-strong body that picks the chief executive.', 'China Daily · SCMP'),
     ('GULF OF FINLAND · WAR AT SEA', 'Russian ship still burning in Finnish waters',
      'Finland leads the rescue as the Sparta II fire rages on.', 'Reuters'),
     ('WELLINGTON · CRICKET', "Pant's 128 puts India 629/6", "India's highest tally in New Zealand; lead 261 at lunch on day four.", 'Reuters'),
@@ -72,7 +72,7 @@ stories = [
     ('GAZA · AID', 'Strike hits food aid vehicle', 'Three Palestinians die in an air attack.', 'Al Jazeera · Reuters'),
     ('BRASÍLIA · HEALTH', 'Bolsonaro in intensive care', 'Ex-president stable, breathing on his own.', 'AP'),
     ('SINALOA, MEXICO · CARTELS', "Mexico captures 'El Chapo Isidro'", 'FBI top-ten fugitive flown to the capital; 11 killed in the operation.', 'AP'),
-    ('WASHINGTON · SECURITY', 'US airlines warned of terror threat', 'Carriers warned of a possible al-Qaeda-linked attack before Thanksgiving.', 'Reports'),
+    ('WASHINGTON · SECURITY', 'US airlines warned of terror threat', 'Carriers warned of a possible attack before Thanksgiving.', 'Reports'),
     ('BASRA, IRAQ · DISASTER', 'Four die in fire at Basra power plant', 'A blaze at an electricity facility also injures 35 in the city.', 'Reuters'),
     ('TURIN · TENNIS', 'Zverev meets Alcaraz for ATP Finals title', 'Top two seeds clash at 17:00 GMT.', 'ATP'),
 ]
@@ -82,20 +82,20 @@ briefs = [
     ('15', 'WASHINGTON', 'Nvidia faces SEC accounting probe', 'Media'),
     ('16', 'JERUSALEM', 'Eisenkot opens Likud coalition talks', 'Maariv'),
     ('17', 'TEHRAN', 'Iran to ration power as grid strains', 'ST'),
-    ('18', 'CANBERRA', "Marles calls US budget office 'wrong' on AUKUS", 'ABC'),
+    ('18', 'CANBERRA', "Marles: US budget office 'wrong' on AUKUS", 'ABC'),
     ('19', 'MANILA', 'Chinese bomber turns back 170 km from capital', 'AP'),
-    ('20', 'MELBOURNE', 'Cummins keeps Test captaincy; board backs him', 'ABC'),
+    ('20', 'MELBOURNE', 'Board backs Cummins as Test captain', 'ABC'),
     ('21', 'NEW YORK', 'Gupta jailed 19 years in Pannun plot', 'Court'),
     ('22', 'TOKYO', 'Japan to train on Indian ranges, first', 'Reports'),
-    ('23', 'WASHINGTON', 'Hegseth curbs US–Canada military gatherings', 'Reports'),
+    ('23', 'WASHINGTON', 'Hegseth curbs US–Canada drills', 'Reports'),
     ('24', 'RANCHI', 'Cyclone Akvan axes 14 eastern India flights', 'Reports'),
     ('25', 'KYIV', 'Two killed in overnight Russian strikes', 'Officials'),
-    ('26', 'KYIV', "Zelenskyy calls Putin 'murderer' after Trump remark", 'Reports'),
+    ('26', 'KYIV', "Zelenskyy calls Putin a 'murderer'.", 'Reports'),
     ('27', 'LAS VEGAS', 'Verstappen on pole for Grand Prix', 'Reuters'),
     ('28', 'LIVERPOOL', 'Liverpool host Manchester United at Anfield', 'BBC'),
     ('29', 'MARKETS', 'Bitcoin holds above $60,000', 'Markets'),
-    ('30', 'MOGADISHU', 'Somalia expels UAE envoy; recalls its envoy', 'Reports'),
-    ('31', 'COPENHAGEN', 'Denmark expels Russian attaché over rapper plot', 'Guardian'),
+    ('30', 'MOGADISHU', 'Somalia expels UAE envoy', 'Reports'),
+    ('31', 'COPENHAGEN', 'Denmark expels Russian attaché', 'Guardian'),
     ('32', 'BRUSSELS', 'Air traffic halts for 23 Nov national strike', 'ST'),
     ('33', 'BERLIN', 'IG Metall widens car and shipyard strikes', 'Reuters'),
     ('34', 'LISBON', 'Thousands march over living costs', 'Reuters'),
@@ -110,7 +110,7 @@ text(22, 111, 'COP31 near a deal at dawn · Iran says it hit US radars in Bahrai
 
 # Six-item number strip
 numbers = [('~200', 'nations at COP31'), ('03:00', 'GMT objection deadline'), ('2', 'radars Iran says it hit'),
-           ('629/6', "India's record total"), ('723', 'Hong Kong seats'), ('700,000', 'displaced in S Ethiopia')]
+           ('629/6', "India's record total"), ('723', 'Hong Kong seats'), ('700,000', 'displaced in Ethiopia')]
 nx = [22, 188, 354, 520, 686, 852]
 for i, (value, caption) in enumerate(numbers):
     if i:
@@ -179,14 +179,19 @@ def art_box(x, y, w, h, kind):
             for px in (x + 62, x + w - 63):
                 d.rectangle((px - 6, y + 10, px + 6, y + 28), fill=(90, 103, 102))
                 d.line((px, y + 7, px, y + 1), fill=RED, width=2)
-    elif kind in (4, 12):  # cricket bat / tennis match
-        d.ellipse((mid - 24, y + 10, mid + 24, y + 56), fill=(103, 139, 102), outline=INK, width=2)
-        d.line((mid - 15, y + 20, mid + 15, y + 46), fill=PAPER, width=2)
-        d.line((mid + 15, y + 20, mid - 15, y + 46), fill=PAPER, width=2)
+    elif kind in (4, 12):  # cricket equipment / tennis match
         if kind == 4:
-            d.rounded_rectangle((x + 43, y + 13, x + 58, y + 49), radius=4, fill=GOLD, outline=INK)
-            d.line((x + 50, y + 47, x + 55, y + 59), fill=INK, width=3)
+            d.polygon([(x + 50, y + 10), (x + 60, y + 10), (x + 54, y + 31),
+                       (x + 49, y + 38), (x + 44, y + 35)], fill=GOLD, outline=INK)
+            d.line((x + 49, y + 36, x + 46, y + 42), fill=INK, width=3)
+            d.ellipse((x + 82, y + 12, x + 92, y + 22), fill=RED, outline=INK)
+            for px in (x + w - 47, x + w - 39, x + w - 31):
+                d.line((px, y + 13, px, y + 39), fill=INK, width=2)
+            d.line((x + w - 49, y + 39, x + w - 29, y + 39), fill=INK, width=2)
         else:
+            d.ellipse((mid - 24, y + 10, mid + 24, y + 56), fill=(103, 139, 102), outline=INK, width=2)
+            d.line((mid - 15, y + 20, mid + 15, y + 46), fill=PAPER, width=2)
+            d.line((mid + 15, y + 20, mid - 15, y + 46), fill=PAPER, width=2)
             d.ellipse((x + 40, y + 16, x + 49, y + 25), fill=GOLD)
             d.ellipse((x + w - 51, y + 42, x + w - 42, y + 51), fill=GOLD)
     elif kind in (5, 7, 8, 9):  # bridge / aid / hospital / capture
@@ -199,9 +204,15 @@ def art_box(x, y, w, h, kind):
             d.rectangle((mid - 13, y + h - 37, mid + 13, y + h - 13), fill=RED)
             d.ellipse((mid + 20, y + 15, mid + 37, y + 32), fill=GOLD)
         elif kind == 8:
-            d.rectangle((x + 58, y + 17, x + w - 58, y + h - 12), fill=(193, 199, 185), outline=INK, width=2)
-            d.rectangle((mid - 6, y + 23, mid + 6, y + h - 20), fill=RED)
-            d.rectangle((mid - 19, y + 32, mid + 19, y + 44), fill=RED)
+            d.rectangle((x + 49, y + 20, x + 55, y + 39), fill=BLUE, outline=INK)
+            d.rectangle((x + 54, y + 28, x + w - 38, y + 33), fill=(193, 199, 185), outline=INK)
+            d.rectangle((x + 60, y + 22, x + 76, y + 28), fill=PAPER, outline=INK)
+            d.line((x + 55, y + 39, x + w - 35, y + 39), fill=INK, width=2)
+            d.line((x + 65, y + 39, x + 65, y + 43), fill=INK, width=2)
+            d.line((x + w - 43, y + 39, x + w - 43, y + 43), fill=INK, width=2)
+            d.rectangle((x + w - 70, y + 8, x + w - 44, y + 28), fill=PAPER, outline=INK)
+            d.rectangle((x + w - 60, y + 11, x + w - 54, y + 25), fill=RED)
+            d.rectangle((x + w - 64, y + 15, x + w - 50, y + 21), fill=RED)
         else:
             d.ellipse((mid - 24, y + 12, mid + 24, y + 60), fill=(198, 174, 139), outline=INK, width=2)
             d.arc((mid - 36, y + 30, mid + 36, y + 68), 180, 360, fill=GREEN, width=5)
