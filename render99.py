@@ -192,16 +192,16 @@ def scene(kind, x, y, w, h, compact=False):
         B(262,30,282,38,GOLD); P([(264,38),(280,38),(277,55),(267,55)],GOLD); B(263,55,282,59,GOLD); B(261,59,284,64,GOLD)
 
 stories = [
-('ANTALYA, TÜRKIYE · CLIMATE','COP31 closes in on a deal at dawn','Near-final package for ~200 nations; objections close 03:00 GMT, approval at 06:00.','Reuters','~200 NATIONS','reported',1),
+('ANTALYA, TÜRKIYE · CLIMATE','COP31 closes in on a deal at dawn','Nearly 200 nations; objections 03:00 GMT, approval 06:00.','Reuters','~200 NATIONS','reported',1),
 ('MANAMA, BAHRAIN · WAR','Iran says it hit US radars in Bahrain','Tehran claims missiles and drones hit two bases; Bahrain reports a fire, no injuries.','IRNA · Al Jazeera','2 BASES','claim',2),
-('HONG KONG · POLITICS','Hong Kong votes for its Election Committee','5,700 voters select chief-executive electors; 856 candidates contest 723 seats. Polls close 6pm.','China Daily · SCMP','723 SEATS','reported',3),
-('GULF OF FINLAND · WAR AT SEA','Russian ship still burning in Finnish waters','Finland leads rescue as Sparta II burns.','Reuters','16 CREW SAFE','reported',4),
-('WELLINGTON · CRICKET','Pant\'s 128 puts India 629/6','India\'s record NZ total; lead 261 at lunch.','Reuters','629/6','reported',5),
-('PATNA, INDIA · INFRASTRUCTURE','Modi opens Nitish Setu bridge','New bridge links Patna and Vaishali.','PTI','BRIDGE OPENS','reported',6),
+('HONG KONG · POLITICS','Hong Kong votes for its Election Committee','5,700 choose electors; 856 contest 723 seats. Polls close 6pm.','China Daily · SCMP','723 SEATS','reported',3),
+('GULF OF FINLAND · WAR','Russian ship still burning in Finnish waters','Finland leads rescue; ship burns.','Reuters','16 CREW SAFE','reported',4),
+('WELLINGTON · CRICKET','Pant\'s 128 puts India 629/6','India\'s NZ record: 629/6; lead 261.','Reuters','629/6','reported',5),
+('PATNA · BRIDGE','Modi opens Nitish Setu bridge','New bridge links Patna and Vaishali.','PTI','BRIDGE OPENS','reported',6),
 ('TALLINN · SECURITY','Estonia to shut its Russia border on 1 Dec','Five crossings close 1 Dec after sabotage bid; families hurry across.','Reuters','1 DEC','reported',7),
 ('GAZA · AID','Strike hits food aid vehicle','Three Palestinians die in air attack.','Al Jazeera · Reuters','3 KILLED','reported',8),
 ('BRASÍLIA · HEALTH','Bolsonaro in intensive care','Ex-president stable, breathing unaided.','AP','ICU','reported',9),
-('SINALOA, MEXICO · CARTELS','Mexico captures \'El Chapo Isidro\'','Fugitive flown to capital; 11 killed.','AP','11 KILLED','reported',10),
+('SINALOA · CARTELS','Mexico captures \'El Chapo Isidro\'','Fugitive flown to capital; 11 killed.','AP','11 KILLED','reported',10),
 ('WASHINGTON · SECURITY','US airlines warned of terror threat','Possible al-Qaeda-linked attack warned before Thanksgiving.','Reports','AL-QAEDA LINK','reported',11),
 ('BASRA, IRAQ · DISASTER','Four die in fire at Basra power plant','Plant fire injures 35 in the city.','Reuters','4 DEAD','reported',12),
 ('TURIN · TENNIS','Zverev meets Alcaraz for ATP Finals title','Top two seeds clash at 17:00 GMT.','ATP','17:00 GMT','scheduled',13),
