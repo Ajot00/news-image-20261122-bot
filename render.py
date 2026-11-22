@@ -44,8 +44,7 @@ def rule(y, x1=34, x2=990, color=INK, width=2):
 
 # Masthead
 text(34, 20, "THE WORLD", 39, INK, True)
-d.line((279, 27, 279, 76), fill=RED, width=4)
-text(299, 24, "SUNDAY 22 NOVEMBER 2026", 30, RED, True)
+text(505, 24, "SUNDAY 22 NOVEMBER 2026", 30, RED, True)
 text(35, 70, "WORLD NEWS  /  ONE DAY, SIX CONTINENTS", 14, MUTED, True)
 rule(98, color=INK, width=4)
 
@@ -69,7 +68,7 @@ rule(350, color=RED, width=4)
 # Six equal news cards, in the specified order.
 cards = [
     ("UKRAINE: 2 KILLED IN OVERNIGHT STRIKES", "Russian strikes across Ukraine overnight; at least two people killed."),
-    ("SPARTA II STILL BURNING", "After Saturday’s drone strike in the Gulf of Finland, firefighting continues off Loviisa. All 16 crew evacuated; Finland tightens air and sea curbs."),
+    ("SPARTA II STILL BURNING", "After Saturday’s Gulf of Finland drone strike, firefighting continues off Loviisa. All 16 crew evacuated."),
     ("BASRA FIRE: 4 DEAD", "Fire at an electricity plant in Basra, Iraq, kills four and injures 35."),
     ("MODI OPENS NITISH SETU", "PM Narendra Modi inaugurates the bridge linking Patna and Vaishali districts in Bihar."),
     ("ESTONIA TO SHUT RUSSIA BORDER", "Tallinn will close its Russia border; Moscow decries a “new Iron Curtain”."),
@@ -109,7 +108,7 @@ for px,py in pins:
     d.ellipse((px-5,py-5,px+5,py+5), fill=RED, outline=PAPER, width=1)
 for x, label in zip((38, 198, 358, 518, 678, 838),
                     ("ANTALYA", "UKRAINE", "BALTIC", "BASRA", "PATNA", "WELLINGTON")):
-    text(x, 775, label, 14, INK, True)
+    text(x, 775, label, 15, INK, True)
 rule(798, color=RED, width=3)
 
 # Eight concise briefs, two orderly rows of four.
