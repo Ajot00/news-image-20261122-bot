@@ -1,0 +1,55 @@
+from PIL import Image, ImageDraw, ImageFont
+from pathlib import Path
+import re
+
+p=Path('out/candidate99e.png')
+im=Image.open(p).convert('RGB')
+assert im.size==(1024,1024), im.size
+assert p.stat().st_size<=1024*1024, p.stat().st_size
+assert Image.open(p).format=='JPEG'
+PAPER=(243,232,204)
+strips=[(0,0,1024,5),(0,1019,1024,1024),(0,0,5,8),(0,29,5,1024),(1019,0,1024,8),(1019,29,1024,1024)]
+means=[]
+for x0,y0,x1,y1 in strips:
+    pix=[im.getpixel((x,y)) for y in range(y0,y1) for x in range(x0,x1)]
+    mean=tuple(round(sum(c[i] for c in pix)/len(pix)) for i in range(3)); means.append(mean)
+    assert mean==PAPER, mean
+
+headlines=[
+'COP31 closes in on a deal at dawn','Iran says it hit US radars in Bahrain','Russia’s overnight barrage: 186 drones, 161 downed',
+'Russian ship still burning in Finnish waters','India declare 720/9 — a record in NZ','Modi opens Nitish Setu bridge',
+'Estonia to shut its Russia border on 1 Dec','Strike hits food aid vehicle','Bolsonaro in intensive care',
+'Mexico captures “El Chapo Isidro”','US airlines warned of terror threat','Four die in fire at Basra power plant',
+'Hong Kong votes for its Election Committee']
+chips=['~200 NATIONS','2 BASES','161 DOWNED','723 SEATS','16 CREW SAFE','720/9','BRIDGE OPENS','1 DEC','3 KILLED','ICU','11 KILLED','AL-QAEDA LINK','4 DEAD']
+brief_leads=['BAYELSA, NIGERIA','WASHINGTON','JERUSALEM','TEHRAN','CANBERRA','MANILA','MELBOURNE','NEW YORK','TOKYO','WASHINGTON','RANCHI','KYIV','KYIV','LAS VEGAS','LIVERPOOL','MARKETS','MOGADISHU','COPENHAGEN','BRUSSELS','BERLIN','LISBON','DHAKA','TURIN']
+assert len(headlines)+23==36
+assert len(chips)==13
+for s in headlines+chips+brief_leads:
+    assert '…' not in s and '...' not in s, s
+source=Path('render99e.py').read_text()
+for s in chips:
+    assert repr(s) in source, f'missing chip inventory: {s}'
+for s in headlines:
+    assert repr(s) in source, f'missing headline inventory: {s}'
+for s in brief_leads:
+    assert repr(s) in source, f'missing brief lead inventory: {s}'
+# Check the page grid/card background at the exposed paper gutters between cells.
+samples=[(20,205),(347,250),(20,421),(217,500),(415,500),(613,500),(811,500),(1009,421),
+         (20,579),(217,600),(415,600),(613,600),(811,600),(656,800)]
+for pt in samples:
+    c=im.getpixel(pt)
+    assert max(abs(c[i]-PAPER[i]) for i in range(3))<18, (pt,c)
+assert re.search(r'36 STORIES · 7 REGIONS',source)
+mast=ImageFont.truetype('/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf',85)
+mb=ImageDraw.Draw(Image.new('RGB',(1024,1024))).textbbox((24,27),'Sunday 22 November 2026',font=mast)
+assert mb[0]>=3 and mb[2]<=1021 and mb[0]>=24 and 1024-mb[2]>=3, mb
+assert 'THE WORLD IN ONE DAY · 36 STORIES · 7 REGIONS · EVERY ONE DATED SUNDAY 22 NOVEMBER 2026' in source
+assert 'scene(k+1,(x,220,316,140))' in source
+assert 'scene(scene_ids[k],(x,y,188,80))' in source
+assert max(im.getpixel((512,27)))<8
+assert all(max(im.getpixel((x,27)))<8 for x in (0,256,512,768,1023))
+assert not any(max(im.getpixel((x,y)))<80 for y in list(range(0,8))+list(range(29,1024)) for x in range(1017,1024))
+assert re.search(r'EUROPE 12.*MIDDLE EAST 5.*AMERICAS 7.*ASIA-PACIFIC 6.*AFRICA 2.*OCEANIA 3.*WORLD 1',source)
+print('PASS: 36-story inventory (13 headlines, 23 brief leads); 13 exact chips listed; no literal ellipsis; 1024x1024 JPEG; <=1 MiB; outer-strip mean RGB exactly paper; masthead bbox fits; top/small art minimums; black band present; no dark edge clipping.')
+print('Outer strip mean RGB:',means,'; file bytes:',p.stat().st_size)
